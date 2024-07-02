@@ -23,7 +23,10 @@ jobs:
           cd frontend
           npm install
           npm run build --prod
-
+          
+      - name: Install dependencies and build
+        run: ls
+        
       - name: Install AWS CLI
         run: |
           sudo apt-get update
