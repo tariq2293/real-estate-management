@@ -19,6 +19,13 @@ jobs:
           node-version: '14'
 
       - name: Navigate to repository directory
-        run: ls
+        run: cd frontend
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Ionic CLI
+        run: npm install -g @ionic/cli
+
 
       
