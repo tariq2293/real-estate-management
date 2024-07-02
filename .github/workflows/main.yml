@@ -18,11 +18,33 @@ jobs:
         with:
           node-version: 'lts/*'
 
-      - name: Navigate to frontend directory
-        run: cd frontend  # Adjust this path if needed
+     name: Build and Deploy to S3
 
-      - name: Display current directory
-        run: pwd  # Optional: Check the current directory for verification
+on:
+  push:
+    branches:
+      - master
 
-      - name: List files in current directory
-        run: ls -la  # Optional: List files in the current directory for verification
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 'lts/*'
+
+      - name: Install dependencies
+        run: npm install --prefix frontend
+
+      - name: Install Ionic CLI
+        run: npm install -g @ionic/cli
+
+      - name: Run Ionic Serve
+        run: |
+          cd frontend
+          ionic serve --no-open
