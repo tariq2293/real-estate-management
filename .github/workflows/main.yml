@@ -19,7 +19,7 @@ jobs:
           node-version: 'lts/*'
 
       - name: Navigate to frontend directory
-        run: cd frontend  # Adjust this path if needed
-
-      - name: Install dependencies
-        run: ls
+        run: cd frontend  
+        
+      - name: list inside frontend directory
+        run: ls -al
