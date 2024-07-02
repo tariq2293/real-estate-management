@@ -19,8 +19,7 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: cd frontend  
-             npm install
+        run: cd frontend | npm install
 
       - name: Install Ionic CLI
         run: npm install -g @ionic/cli
