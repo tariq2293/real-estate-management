@@ -16,10 +16,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 'lts/*'
+          node-version: '14'
+
+      - name: Navigate to repository directory
+        run: cd real-estate-management  # Adjust this path if needed
 
       - name: Navigate to frontend directory
-        run: cd frontend  # Adjust this path if needed
+        run: cd Frontend  # Adjust this path if needed
 
       - name: Install dependencies
         run: npm install
