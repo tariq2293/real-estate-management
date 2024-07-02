@@ -18,14 +18,13 @@ jobs:
         with:
           node-version: 'lts/*'
 
-      - name: Install dependencies
-        run: npm install --prefix frontend
-
-      - name: Install Ionic CLI
-        run: npm install -g @ionic/cli
-
-      - name: Project build
+      - name: Install dependencies and build
         run: |
           cd frontend
-          ng build
+          npm install
+          npm run build --prod
 
+      - name: Install AWS CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y awscli
