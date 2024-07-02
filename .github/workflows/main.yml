@@ -27,5 +27,7 @@ jobs:
       - name: Install Ionic CLI
         run: npm install -g @ionic/cli
 
+      - name: start the project
+        run: ionic serve
 
       
