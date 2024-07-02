@@ -1,4 +1,4 @@
-name: Upload Website
+name: Build and Deploy to S3
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  upload_to_s3:
+  build_and_deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,6 +18,15 @@ jobs:
         with:
           node-version: '14'
 
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install Ionic CLI
+        run: npm install -g @ionic/cli
+
+      - name: Build project
+        run: ionic serve
+
       - name: Install AWS CLI
         run: sudo apt-get update && sudo apt-get install -y awscli
 
@@ -28,4 +37,4 @@ jobs:
           AWS_REGION: 'us-east-1'
         run: |
           ls -la
-          aws s3 sync . s3://real-estate-management-test/ --exclude ".git/*" --cache-control "max-age=0, no-cache, no-store, must-revalidate"
+          aws s3 sync ./www s3://your-bucket-name/ --exclude ".git/*" --cache-control "max-age=0, no-cache, no-store, must-revalidate"
