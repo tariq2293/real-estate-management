@@ -28,4 +28,4 @@ jobs:
           AWS_REGION: 'us-east-1'
         run: |
           ls -la
-          aws s3 sync . s3://github-action-dep/ --exclude ".git/*" --cache-control "max-age=0, no-cache, no-store, must-revalidate"
+          aws s3 sync . s3://real-estate-management-test/ --exclude ".git/*" --cache-control "max-age=0, no-cache, no-store, must-revalidate"
