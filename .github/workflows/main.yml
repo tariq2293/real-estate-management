@@ -19,14 +19,6 @@ jobs:
           node-version: '14'
 
       - name: Navigate to repository directory
-        run: cd real-estate-management/Frontend/  
+        run: ls
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Install Ionic CLI
-        run: npm install -g @ionic/cli
-
-      - name: Run Ionic Serve
-        run: |
-          ionic serve --no-open
+      
